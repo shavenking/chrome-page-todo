@@ -54,6 +54,17 @@ var clearInput = function (input) {
     input.value = ''
 }
 
+var escapeHtml = function (unsafe) {
+    return (
+        unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;")
+    )
+}
+
 var renderTasks = function (tasks) {
     if (!Array.isArray(tasks)) {
         return
@@ -62,7 +73,7 @@ var renderTasks = function (tasks) {
     taskList().innerHTML = tasks.reverse().map(function (task) {
         return (
             '<li class="list-group-item justify-content-between">'
-            + task.description
+            + escapeHtml(task.description)
             + '<button type="button" class="btn btn-link btn-check-task" data-id="' + task.id + '">CHECK</button>'
             + '</li>'
         )

@@ -1,12 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Getting Started Extension's Popup</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     </head>
+    <style>
+        html, body {
+            width: 500px;
+        }
+    </style>
     <body>
-        <div id="tasks"></div>
-        <input type="text" name="new_task" id="new-task-input">
+        <div class="container mt-3 mb-3" id="app">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <input type="text" name="new_task" id="new-task-input" class="form-control">
+                </div>
+                <div class="col-12">
+                    <ul id="task-list" class="list-group"></ul>
+                </div>
+            </div>
+        </div>
         <script src="popup.js"></script>
     </body>
 </html>
